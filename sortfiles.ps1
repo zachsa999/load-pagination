@@ -1,7 +1,8 @@
 $params = $args
 $rootPath = 'H:\My Drive\(1) ScaleTickets2022\' 
+$projectPath = 'C:\Users\Zach\Documents\projects\invoicing\'
 $weekFolderName = 'week_' + (get-date -UFormat %V) + '_' + (Get-Date -Format "yyyy") + '\'
-
+$customers = Import-Csv -Path .\customers.txt -Header "filename", "1", "2", "3", "4", "5" -Delimiter "|"
 
 function OutputPS {
     param (
@@ -13,66 +14,79 @@ function OutputPS {
 } 
     
 function MoveFiles {
-    Set-Location -Path $rootPath
-    $customers = Import-Csv -Path .\customers.txt -Header "filename", "1", "2", "3", "4", "5" -Delimiter "|"
     OutputPS "Entering Movefiles()"
-    OutputPS ('Moving files into corresponding folder in ' + $rootPath + $weekFolderName)
+    OutputPS ('Moving files into corresponding folder in ' + $weekFolderName)
 
     # create week file after testing if exists
-    if (!(Test-Path -Path ($rootPath + $weekFolderName))) {
-        New-Item -Path ($rootPath + $weekFolderName) -ItemType Directory
+    if (!(Test-Path -Path ($weekFolderName))) {
+        New-Item -Path ($weekFolderName) -ItemType Directory
         OutputPS ("folder does not exist Creating folder " + $weekFolderName)
-
     }
 
     # Rename all files to lowercase for simple
-    Get-ChildItem -Path ($rootPath) -File | ForEach-Object {
+    Get-ChildItem -File | ForEach-Object {
         Rename-Item $_ -NewName $_.ToString().ToLower()
-
     }
 
-    Get-ChildItem -Path ($rootPath) -File | ForEach-Object {
+    Get-ChildItem -File | ForEach-Object {
 
         OutputPS ("Processing " + $_ + " File")
         foreach ($customer in $customers) {
             OutputPS (".. ..")
-
             OutputPS ("`X Processing " + $customer.filename + " Folder")
-            
             # Test not null
             $file = $_.ToString()
-
             # If a customer matches the email name
-            if ($.Contains($customer.filename)`
+            if ($file.Contains($customer.filename)`
                     -or $file.Contains($customer.1)`
                     -or $file.Contains($customer.2)`
                     -or $file.Contains($customer.3)`
                     -or $file.Contains($customer.4)`
                     -or $file.Contains($customer.5)) {
-                
                 # Creates File by 
                 # tests for existing folder
-                if (!(Test-Path -Path ($rootPath + $weekFolderName + $customer.filename))) {
-                    New-Item -Path ($rootPath + $weekFolderName + $customer.filename) -ItemType Directory
+                if (!(Test-Path -Path ($weekFolderName + $customer.filename))) {
+                    New-Item -Path ($weekFolderName + $customer.filename) -ItemType Directory
                     OutputPS ("folder does not exist Creating folder " + $customer.filename)
                 }
 
                 # move $_ into $customer file
-                OutputPS ("Filepath = " + $rootPath + $_)
+                OutputPS ("Filepath = " + $_)
 
-                Move-Item $_ -Destination ($rootPath + $weekFolderName + $customer.filename) 
+                Move-Item $_ -Destination ($weekFolderName + $customer.filename) 
                 OutputPS ("^" + $_ + " Moved into " + $customer.filename)
             }
         }
-        OutputPS ($rootPath + $_)
-        OutputPS ($rootPath + $weekFolderName).GetType()
-        Move-Item $_ -Destination ($rootPath + $weekFolderName)
+
+        OutputPS ( $weekFolderName).GetType()
+        Move-Item $_ -Destination $weekFolderName
     }
     OutputPS "Exiting Movefiles()"
 }
 
-OutputPS -Text "Begin File"
+function LooseEnds {
+    Get-ChildItem -File | ForEach-Object {
+        # extract metadata
+        $fileName = $_.ToString()
+        $pos1 = $fileName.IndexOf(')_subject(')
+        $rightPart = $fileName.Substring($pos1 + 9)
+        $pos2 = $rightPart.IndexOf('_date(')
+        $leftPart = $rightPart.Substring(0, $pos2)
 
-# CreateLoadFolders
-MoveFiles
+        $newDirName = Read-Host -Prompt "$leftPart new dir name?"
+
+        New-Item -Path $newDirName -ItemType Directory
+        Move-Item $_ -Destination $newDirName
+    }
+}
+
+Set-Location -Path $rootPath
+OutputPS -Text "Begin File"
+# MoveFiles
+Set-Location -Path $weekFolderName
+LooseEnds
+
+
+
+Set-Location -Path $projectPath
 
