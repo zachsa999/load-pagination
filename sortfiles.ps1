@@ -75,18 +75,48 @@ function LooseEnds {
 
         $newDirName = Read-Host -Prompt "$leftPart new dir name?"
 
-        New-Item -Path $newDirName -ItemType Directory
+        if (!(Test-Path -Path ($newDirNam))) {
+            New-Item -Path $newDirName -ItemType Directory
+            New-Item -Path ($weekFolderName) -ItemType Directory
+            OutputPS ("folder does not exist Creating folder " + $newDirNam)
+        }
         Move-Item $_ -Destination $newDirName
     }
 }
+function setup {
+    # Setup
+    # Install-Module -Name MergePdf
+    # Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+    # Get-PSRepository   
+}
+function MergeFiles {
 
-Set-Location -Path $rootPath
-OutputPS -Text "Begin File"
-# MoveFiles
-Set-Location -Path $weekFolderName
-LooseEnds
+
+    OutputPS "Inside MergeFiles()"
+    Get-ChildItem -Directory | ForEach-Object {
+        OutputPS ("operating on " + $_)
+        # Write-Output $files    
+        Merge-Pdf -OutputPath $_ -Path $_
+    }
+    OutputPS "exiting MergeFiles()"
+}
+function OCR {
+    
+    # ocrmypdf --rotate-pages .\Binder1.pdf rotatedBinder.pdf --redo-ocr --rotate-pages-threshold 2.5
+}
 
 
+Set-Location "H:\My Drive\(1) ScaleTickets2022\week_38_2022"
+MergeFiles
+
+
+
+
+# Set-Location -Path $rootPath
+# OutputPS -Text "Begin File"
+# # MoveFiles
+# Set-Location -Path $weekFolderName
+# LooseEnds
 
 Set-Location -Path $projectPath
 
