@@ -7,7 +7,13 @@ customername|misspelling1|cutstotmer|thereneeds|tobesix|columnsTotal
 the only important bit is that there is six columns. fill the unneeded columns with junk like `alksdaopisdfo`. I haven't tested it with special characters, stick to alphanumeric only.
 
 ## Setup
+### Ensure you have powerhsell > 7 installed 
 You can try running `setup.ps1`, I have not tested it, and a lot of the commands require reboot. All the setup steps require elevated permissions.
+
+### Install [jBig2](https://github.com/ocrmypdf/OCRmyPDF/issues/748)
+A little convoluted see the github thread.
+Move it to a folder in ProgramFiles and add the fold;er to environment variables
+
 ### Install [Chocolatey](https://chocolatey.org)
 
 ```powershell

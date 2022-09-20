@@ -83,15 +83,8 @@ function LooseEnds {
         Move-Item $_ -Destination $newDirName
     }
 }
-function setup {
-    # Setup
-    # Install-Module -Name MergePdf
-    # Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
-    # Get-PSRepository   
-}
+
 function MergeFiles {
-
-
     OutputPS "Inside MergeFiles()"
     Get-ChildItem -Directory | ForEach-Object {
         OutputPS ("operating on " + $_)
@@ -101,13 +94,21 @@ function MergeFiles {
     OutputPS "exiting MergeFiles()"
 }
 function OCR {
-    
-    # ocrmypdf --rotate-pages .\Binder1.pdf rotatedBinder.pdf --redo-ocr --rotate-pages-threshold 2.5
+    OutputPS "Inside OCR()"
+    Get-ChildItem -Directory | ForEach-Object {
+        $targetFile = $_.ToString() + "/Merged.pdf"
+        $outputFile = $_.ToString() + "/ocrMerged1.pdf"
+        OutputPS ("operating on " + $targetFile)   
+        # ocrmypdf --redo-ocr --jbig2-lossy --optimize 3 --rotate-pages --rotate-pages-threshold 2.5 $targetFile $outputFile
+        ocrmypdf --redo-ocr --jbig2-lossy --optimize 3 --rotate-pages --rotate-pages-threshold 2.5 --output-type pdf $targetFile $outputFile
+    }
+    OutputPS "exiting OCR()"
 }
 
 
 Set-Location "H:\My Drive\(1) ScaleTickets2022\week_38_2022"
-MergeFiles
+# MergeFiles
+OCR
 
 
 
