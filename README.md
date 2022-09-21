@@ -7,6 +7,10 @@ customername|misspelling1|cutstotmer|thereneeds|tobesix|columnsTotal
 the only important bit is that there is six columns. fill the unneeded columns with junk like `alksdaopisdfo`. I haven't tested it with special characters, stick to alphanumeric only.
 
 ## Setup
+### Install [image-magick](https://imagemagick.org/script/download.php#windows)
+```powershell
+choco install imagemagick.app
+```
 ### Ensure you have powerhsell > 7 installed 
 You can try running `setup.ps1`, I have not tested it, and a lot of the commands require reboot. All the setup steps require elevated permissions.
 

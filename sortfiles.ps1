@@ -3,6 +3,7 @@ $rootPath = 'H:\My Drive\(1) ScaleTickets2022\'
 $projectPath = 'C:\Users\Zach\Documents\projects\invoicing\'
 $weekFolderName = 'week_' + (get-date -UFormat %V) + '_' + (Get-Date -Format "yyyy") + '\'
 $customers = Import-Csv -Path .\customers.txt -Header "filename", "1", "2", "3", "4", "5" -Delimiter "|"
+$weekPathName = $rootPath + $weekFolderName
 
 function OutputPS {
     param (
@@ -14,9 +15,10 @@ function OutputPS {
 } 
     
 function MoveFiles {
+    Set-Location $rootPath
+
     OutputPS "Entering Movefiles()"
     OutputPS ('Moving files into corresponding folder in ' + $weekFolderName)
-
     # create week file after testing if exists
     if (!(Test-Path -Path ($weekFolderName))) {
         New-Item -Path ($weekFolderName) -ItemType Directory
@@ -29,11 +31,8 @@ function MoveFiles {
     }
 
     Get-ChildItem -File | ForEach-Object {
-
-        OutputPS ("Processing " + $_ + " File")
+        $fileMoved = 0
         foreach ($customer in $customers) {
-            OutputPS (".. ..")
-            OutputPS ("`X Processing " + $customer.filename + " Folder")
             # Test not null
             $file = $_.ToString()
             # If a customer matches the email name
@@ -43,28 +42,22 @@ function MoveFiles {
                     -or $file.Contains($customer.3)`
                     -or $file.Contains($customer.4)`
                     -or $file.Contains($customer.5)) {
-                # Creates File by 
-                # tests for existing folder
                 if (!(Test-Path -Path ($weekFolderName + $customer.filename))) {
                     New-Item -Path ($weekFolderName + $customer.filename) -ItemType Directory
-                    OutputPS ("folder does not exist Creating folder " + $customer.filename)
                 }
-
-                # move $_ into $customer file
-                OutputPS ("Filepath = " + $_)
-
                 Move-Item $_ -Destination ($weekFolderName + $customer.filename) 
-                OutputPS ("^" + $_ + " Moved into " + $customer.filename)
+                $fileMoved = 1
             }
         }
-
-        OutputPS ( $weekFolderName).GetType()
-        Move-Item $_ -Destination $weekFolderName
+        if ($fileMoved -eq 0) {
+            Move-Item $_ -Destination $weekFolderName
+        }
     }
     OutputPS "Exiting Movefiles()"
 }
 
-function LooseEnds {
+function MoveRest {
+    Set-Location $weekPathName
     Get-ChildItem -File | ForEach-Object {
         # extract metadata
         $fileName = $_.ToString()
@@ -75,9 +68,9 @@ function LooseEnds {
 
         $newDirName = Read-Host -Prompt "$leftPart new dir name?"
 
-        if (!(Test-Path -Path ($newDirNam))) {
+        if (!(Test-Path $newDirName)) {
             New-Item -Path $newDirName -ItemType Directory
-            New-Item -Path ($weekFolderName) -ItemType Directory
+            New-Item $weekFolderName -ItemType Directory
             OutputPS ("folder does not exist Creating folder " + $newDirNam)
         }
         Move-Item $_ -Destination $newDirName
@@ -85,39 +78,40 @@ function LooseEnds {
 }
 
 function MergeFiles {
+    Set-Location $weekPathName
     OutputPS "Inside MergeFiles()"
     Get-ChildItem -Directory | ForEach-Object {
         OutputPS ("operating on " + $_)
         # Write-Output $files    
+        Set-Location $_
+        magick mogrify -format pdf *.jp*
+        magick mogrify -format pdf *.png
+        Remove-Item *.jp*
+        Remove-Item *.png
+        Set-Location $weekPathName
         Merge-Pdf -OutputPath $_ -Path $_
     }
     OutputPS "exiting MergeFiles()"
+    Set-Location -Path $projectPath
 }
 function OCR {
+    Set-Location $weekPathName
     OutputPS "Inside OCR()"
     Get-ChildItem -Directory | ForEach-Object {
         $targetFile = $_.ToString() + "/Merged.pdf"
         $outputFile = $_.ToString() + "/ocrMerged1.pdf"
         OutputPS ("operating on " + $targetFile)   
-        # ocrmypdf --redo-ocr --jbig2-lossy --optimize 3 --rotate-pages --rotate-pages-threshold 2.5 $targetFile $outputFile
         ocrmypdf --redo-ocr --jbig2-lossy --optimize 3 --rotate-pages --rotate-pages-threshold 2.5 --output-type pdf $targetFile $outputFile
+        Remove-Item Merged.pdf
     }
     OutputPS "exiting OCR()"
+    Set-Location -Path $projectPath
 }
-
-
-Set-Location "H:\My Drive\(1) ScaleTickets2022\week_38_2022"
-# MergeFiles
+Set-Location $rootPath
+MoveFiles
+MoveRest
+MergeFiles
 OCR
 
-
-
-
-# Set-Location -Path $rootPath
-# OutputPS -Text "Begin File"
-# # MoveFiles
-# Set-Location -Path $weekFolderName
-# LooseEnds
-
-Set-Location -Path $projectPath
+Set-Location $projectPath
 
