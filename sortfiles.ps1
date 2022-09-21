@@ -94,6 +94,7 @@ function MergeFiles {
     OutputPS "exiting MergeFiles()"
     Set-Location -Path $projectPath
 }
+
 function OCR {
     Set-Location $weekPathName
     OutputPS "Inside OCR()"
@@ -102,15 +103,18 @@ function OCR {
         $outputFile = $_.ToString() + "/ocrMerged1.pdf"
         OutputPS ("operating on " + $targetFile)   
         ocrmypdf --redo-ocr --jbig2-lossy --optimize 3 --rotate-pages --rotate-pages-threshold 2.5 --output-type pdf $targetFile $outputFile
-        Remove-Item Merged.pdf
+        $removeMerged = $_.ToString() + "\Merged.pdf"
+        Remove-Item $removeMerged
     }
     OutputPS "exiting OCR()"
-    Set-Location -Path $projectPath
+    Set-Location $projectPath
 }
+
+
 Set-Location $rootPath
-MoveFiles
-MoveRest
-MergeFiles
+# MoveFiles
+# MoveRest
+# MergeFiles
 OCR
 
 Set-Location $projectPath
