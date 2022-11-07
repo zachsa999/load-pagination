@@ -2,6 +2,7 @@ $params = $args
 $rootPath = 'H:\My Drive\(1) ScaleTickets2022\' 
 $projectPath = 'C:\Users\Zach\Documents\projects\invoicing\'
 $weekFolderName = 'week_' + (get-date -UFormat %V) + '_' + (Get-Date -Format "yyyy") + '\'
+$altweekFolderName = 'week_' + (get-date -UFormat %V) + '_' + (Get-Date -Format "yyyy") + '_1' + '\'
 $customers = Import-Csv -Path .\customers.txt -Header "filename", "1", "2", "3", "4", "5" -Delimiter "|"
 $weekPathName = $rootPath + $weekFolderName
 
@@ -23,6 +24,9 @@ function MoveFiles {
     if (!(Test-Path -Path ($weekFolderName))) {
         New-Item -Path ($weekFolderName) -ItemType Directory
         OutputPS ("folder does not exist Creating folder " + $weekFolderName)
+    } else {
+        New-Item -Path ($altweekFolderName) -ItemType Directory
+        OutputPS ("folder does not exist Creating folder " + $altweekFolderName)
     }
 
     # Rename all files to lowercase for simple
@@ -112,9 +116,9 @@ function OCR {
 
 
 Set-Location $rootPath
-# MoveFiles
-# MoveRest
-# MergeFiles
+MoveFiles
+MoveRest
+MergeFiles
 OCR
 
 Set-Location $projectPath
