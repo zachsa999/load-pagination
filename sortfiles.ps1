@@ -1,5 +1,5 @@
 $params = $args
-$rootPath = 'H:\My Drive\(1) ScaleTickets2022\' 
+$rootPath = 'H:\My Drive\(1) ScaleTickets2023\' 
 $projectPath = 'C:\Users\Zach\Documents\projects\invoicing\'
 $weekFolderName = 'week_' + (get-date -UFormat %V) + '_' + (Get-Date -Format "yyyy") + '\'
 $altweekFolderName = 'week_' + (get-date -UFormat %V) + '_' + (Get-Date -Format "yyyy") + '_1' + '\'
@@ -24,7 +24,8 @@ function MoveFiles {
     if (!(Test-Path -Path ($weekFolderName))) {
         New-Item -Path ($weekFolderName) -ItemType Directory
         OutputPS ("folder does not exist Creating folder " + $weekFolderName)
-    } else {
+    }
+    else {
         New-Item -Path ($altweekFolderName) -ItemType Directory
         OutputPS ("folder does not exist Creating folder " + $altweekFolderName)
     }
