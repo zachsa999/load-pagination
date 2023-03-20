@@ -38,7 +38,7 @@ function MoveFiles {
     Get-ChildItem -File | ForEach-Object {
         $fileMoved = 0
         foreach ($customer in $customers) {
-            # Test not null
+            # Test not null/
             $file = $_.ToString()
             # If a customer matches the email name
             if ($file.Contains($customer.filename)`
@@ -124,3 +124,4 @@ OCR
 
 Set-Location $projectPath
 
+ 
