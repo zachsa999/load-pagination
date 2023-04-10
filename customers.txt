@@ -4,7 +4,7 @@ bison|asdfasdf|asdfasdf|asdfasdf|asdfasdf|asdfasdf
 blackdale|black dale|blackdale|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
 bunge|bunge|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
 cwarkentin|charles warkentin|charles w|c warkentin|charlesw|asdfasd
-darvinf|darvin|fireman|kdsfhdashfjlk|kdsajhfdashfjlk|kdsaakjffdashfjlk
+darvinf|darvin|fireman|kdsfhdashfjlk|kdsajhfdashfjlk|kdsaakjffdashfjlkbunge
 dgendzelefich|gendzelevitch|gendzelevich|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
 emilling|e millinh|emerson m|emersonm|emerson milling|emersonmilling
 epenner|elroy penner|elroy|jkbiu8un8ln|jkbiu8un8lnn|jkbiu8un8ln
@@ -31,6 +31,7 @@ longlake|long lake|longlake|LONG LAKE|jkbiu8un8ln|jkbiu8un8ln
 lpenner|lester penner|lesterpenner|lester|lesterp|asdfasdfadsfa
 lpenner|lowell penner|lowell|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
 lyft|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
+mholsteins|millenium h|m holsteins|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
 mpenner|m penner|marlin p|marlinp|greenland seed|greenlandseed
 mreimer|m reimer|mark r|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
 mwarkentin|murray w|m warkentin|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
@@ -41,7 +42,7 @@ nsilhouette|n silhouette|northern s|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
 ofarms|oakley|oaklee|oakley f|o farms|jkbiu8un8ln
 origin|origin|origin partners|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
 pact|pact|prairie ag commodity trading|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
-pandh|parrish & heimbecker|p+h|p + h|p&h|p and
+pandh|parrish|p+|p + |p&h|p and
 pcreek|p creek|prairie c|prairiec|jkbiu8un8ln|jkbiu8un8ln
 pitura|piruta|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8l
 plakes|prairie lakes|p lakes|prairie l|jkbiu8un8ln|jkbiu8un8ln
@@ -74,4 +75,6 @@ vfarms|veenedaal f| v farms|veenedaal farms|jkbiu8un8ln|jkbiu8un8ln
 vfs|vfp|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
 westphalia|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
 wlt|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
-mholsteins|millenium h|m holsteins|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
+kpenner|kale p|k penner|kale|kale penner|kalep
+neupage|nuepage|neu page|neu page|neu page|neu page
+gridge|golden r|g ridge|golden ridge|golden ridge|golden ridge

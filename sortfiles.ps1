@@ -1,5 +1,5 @@
 $params = $args
-$rootPath = 'H:\My Drive\(1) ScaleTickets2023\' 
+$rootPath = 'H:\My Drive\ScaleTickets2023\' 
 $projectPath = 'C:\Users\Zach\Documents\projects\invoicing\'
 $weekFolderName = 'week_' + (get-date -UFormat %V) + '_' + (Get-Date -Format "yyyy") + '\'
 $altweekFolderName = 'week_' + (get-date -UFormat %V) + '_' + (Get-Date -Format "yyyy") + '_1' + '\'
