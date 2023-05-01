@@ -3,6 +3,7 @@ benner|kdsajfdashfjlk|kdsaakjhfjlk|kdhfdashfjlk|kdkjfjlk|kdsajakjfhlfjlk
 bison|asdfasdf|asdfasdf|asdfasdf|asdfasdf|asdfasdf
 blackdale|black dale|blackdale|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
 bunge|bunge|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
+cgoosen|c goosen|clark g|clarke g|clarke|clark
 cwarkentin|charles warkentin|charles w|c warkentin|charlesw|asdfasd
 darvinf|darvin|fireman|kdsfhdashfjlk|kdsajhfdashfjlk|kdsaakjffdashfjlkbunge
 dgendzelefich|gendzelevitch|gendzelevich|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
@@ -15,6 +16,7 @@ fwiebe|fwiebe|fred wiebe|fred|frederick|kdsajhflkhdsakjfhldashfdashfjlk
 gfi|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
 giesbrechtp|giesbrecht poultry|giesbrechtpoultry|chad|asdlkjfjlkl|jkahsdflkdsh
 gpag|green prairie|sam f| sfriesen|jkbiu8un8ln|jkbiu8un8ln
+gridge|golden r|g ridge|golden ridge|golden ridge|golden ridge
 gwarkentin|garry w|g warkentin|garry warkentin|jkahsdflkdsh|jkahsdflkdsh
 hausamman|asdfads|asdfadsf|asdfasdf|asdfadsf|asdfasdf
 hfreisen|harlanf|harlan f|h freisen|jkbiu8un8ln|jkbiu8un8ln
@@ -22,6 +24,7 @@ hpenner|h penner|harry p|harryp|jkbiu8un8ln|jkbiu8un8ln
 hylife|hylife|hylife|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
 jgl|jgl|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
 kelroe|kelore|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
+kpenner|kale p|k penner|kale|kale penner|kalep
 kpenner|kris penner|asdfasdf|asdfasdf|asdfasdf|asdfasdf
 lbartel|lorne b|lorne|l bartel|jkbiu8un8ln|jkbiu8un8ln
 leighlee|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
@@ -37,6 +40,7 @@ mreimer|m reimer|mark r|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
 mwarkentin|murray w|m warkentin|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
 mwohlgemuth|mark wohlgemuth|asdfasdf|asdfasdf|asdfasdf|asdfasdf
 neilf|neil ferguson|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
+neupage|nuepage|neu page|neu page|neu page|neu page
 npi|npi|rpc|RPC|rocky pond|jkbiu8un8ln
 nsilhouette|n silhouette|northern s|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
 ofarms|oakley|oaklee|oakley f|o farms|jkbiu8un8ln
@@ -48,7 +52,7 @@ pitura|piruta|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8l
 plakes|prairie lakes|p lakes|prairie l|jkbiu8un8ln|jkbiu8un8ln
 plmilling|prarie lake|pl milling|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
 prich|power r|p rich|alksdjflaksd|alksdjflaksd|alksdjflaksd
-qgrain|qualityg|q grain|qulity g|quality|qg
+qgrain|qualityg|q grain|qulify|quality|qg
 ralphw|ralph wohlgemuth|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
 rehoboth|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
 rfreisen|r freisen|rick f|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
@@ -75,6 +79,3 @@ vfarms|veenedaal f| v farms|veenedaal farms|jkbiu8un8ln|jkbiu8un8ln
 vfs|vfp|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
 westphalia|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
 wlt|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
-kpenner|kale p|k penner|kale|kale penner|kalep
-neupage|nuepage|neu page|neu page|neu page|neu page
-gridge|golden r|g ridge|golden ridge|golden ridge|golden ridge
