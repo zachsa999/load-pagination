@@ -1,6 +1,6 @@
 $params = $args
-$rootPath = 'H:\My Drive\ScaleTickets2023\' 
-$projectPath = 'C:\Users\Zach\Documents\projects\invoicing\'
+$rootPath = 'I:\My Drive\ScaleTickets2023\' 
+$projectPath = 'C:\Users\Zach\projects\load-pagination\'
 $weekFolderName = 'week_' + (get-date -UFormat %V) + '_' + (Get-Date -Format "yyyy") + '\'
 $altweekFolderName = 'week_' + (get-date -UFormat %V) + '_' + (Get-Date -Format "yyyy") + '_1' + '\'
 $customers = Import-Csv -Path .\customers.txt -Header "filename", "1", "2", "3", "4", "5" -Delimiter "|"
@@ -64,24 +64,29 @@ function MoveFiles {
 function MoveRest {
     Set-Location $weekPathName
     Get-ChildItem -File | ForEach-Object {
-        # extract metadata
         $fileName = $_.ToString()
-        $pos1 = $fileName.IndexOf(')_subject(')
-        $rightPart = $fileName.Substring($pos1 + 9)
-        $pos2 = $rightPart.IndexOf('_date(')
-        $leftPart = $rightPart.Substring(0, $pos2)
 
-        $newDirName = Read-Host -Prompt "$leftPart new dir name?"
+        Write-Host ("folder does not exist! Please Enter a customer for: '{0}'" -f $filename)
+
+        if ($fileName -match "\.pdf$") {
+            Start-Process $fileName
+        }
+
+        $newDirName = Read-Host -Prompt "Folder Name:: "
+
+        if ([string]::IsNullOrEmpty($newDirName)) {
+            Write-Host "Directory name cannot be null or empty."
+            return
+        }
 
         if (!(Test-Path $newDirName)) {
             New-Item -Path $newDirName -ItemType Directory
-            New-Item $weekFolderName -ItemType Directory
-            OutputPS ("folder does not exist Creating folder " + $newDirNam)
+            Write-Host ("folder does not exist. Creating folder {0}" -f $newDirName)
         }
+        
         Move-Item $_ -Destination $newDirName
     }
 }
-
 function MergeFiles {
     Set-Location $weekPathName
     OutputPS "Inside MergeFiles()"
