@@ -32,7 +32,7 @@ lgrain|linear grain|linear|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
 littleb|little britain|lbritain|asdfasdf|little britian|asdfasdf
 longlake|long lake|longlake|LONG LAKE|jkbiu8un8ln|jkbiu8un8ln
 lpenner|lester penner|lesterpenner|lester|lesterp|asdfasdfadsfa
-lpenner|lowell penner|lowell|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
+lpenner|lowell penner|lowell|lowel penner|jkbiu8un8ln|jkbiu8un8ln
 lyft|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
 mholsteins|millenium h|m holsteins|jkbiu8un8ln|jkbiu8un8ln|jkbiu8un8ln
 mpenner|m penner|marlin p|marlinp|greenland seed|greenlandseed
@@ -92,3 +92,4 @@ pleoppkey|p leop|paul leop|p lep|paul l|paul l
 bbrandt|b brandt|b brant|brad b|brad b|brad b
 ssfarms|seine side|ssfarms|ss farms|aasdfads|aiudsfna
 fgbank|foodgrains|food grains|food grains|food grains|food grainsfg
+dstevenson|douglas s|d stevenson|asdkfj| asda|asdfasdfas
